@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首爾 5天4夜行程｜2026.08.26–08.30</title>
+<style>
+  :root{
+    --ink:#1b1d22; --ink-2:#4a4f5a; --ink-3:#7a808c;
+    --paper:#faf7f2; --card:#ffffff; --line:#e7e1d7;
+    --dan-red:#b3323c;      /* 丹青 赤 */
+    --dan-blue:#2f5d78;     /* 丹青 青 */
+    --dan-green:#2e7566;    /* 丹青 綠 */
+    --dan-gold:#b8873a;     /* 丹青 黃 */
+    --tint-red:#fcefef; --tint-blue:#eef4f8; --tint-green:#eaf4f1; --tint-gold:#fbf3e4;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(27,29,34,.05), 0 8px 24px -12px rgba(27,29,34,.18);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px;margin:0 auto;padding:0 18px 80px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(160deg,#23303c 0%,#2f5d78 55%,#3a7a70 100%);
+    color:#fff;padding:44px 0 34px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;
+    border-radius:50%;background:radial-gradient(circle,rgba(179,50,60,.35),transparent 65%);
+  }
+  .hero .wrap{padding-bottom:0;position:relative;z-index:1}
+  .eyebrow{letter-spacing:.22em;font-size:12px;text-transform:uppercase;opacity:.75;margin:0 0 10px}
+  .hero h1{margin:0;font-size:clamp(28px,5.4vw,42px);line-height:1.25;font-weight:800;letter-spacing:-.01em}
+  .hero .sub{margin:10px 0 0;font-size:16px;opacity:.9}
+  .hero .tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    padding:5px 12px;border-radius:999px;font-size:13px;backdrop-filter:blur(4px)}
+
+  /* ---------- Nav ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .inner{max-width:940px;margin:0 auto;padding:9px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+  nav .inner::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:600;
+    padding:7px 13px;border-radius:999px;border:1px solid transparent;white-space:nowrap;transition:.15s}
+  nav a:hover{background:#fff;border-color:var(--line);color:var(--ink)}
+  nav a.hot{color:var(--dan-red);background:var(--tint-red)}
+
+  /* ---------- Blocks ---------- */
+  section{margin-top:38px}
+  h2.sec{font-size:13px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;
+    margin:0 0 14px;font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+  .fact .k{font-size:11.5px;letter-spacing:.1em;color:var(--ink-3);font-weight:700;text-transform:uppercase}
+  .fact .v{font-size:15px;font-weight:700;margin-top:4px}
+  .fact .m{font-size:13px;color:var(--ink-2);margin-top:3px}
+
+  /* ---------- Day ---------- */
+  .day{margin-top:16px}
+  .dayhead{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;border-bottom:1px solid var(--line);
+    background:linear-gradient(0deg,#fff, #fcfaf6)}
+  .daynum{flex:0 0 auto;width:54px;height:54px;border-radius:12px;display:grid;place-items:center;
+    background:var(--dan-blue);color:#fff;font-weight:800;line-height:1.1;text-align:center}
+  .daynum small{display:block;font-size:10px;font-weight:600;opacity:.8;letter-spacing:.08em}
+  .daynum b{font-size:19px}
+  .d-red .daynum{background:var(--dan-red)}
+  .d-green .daynum{background:var(--dan-green)}
+  .d-gold .daynum{background:var(--dan-gold)}
+  .dayhead .t{flex:1;min-width:0}
+  .dayhead h3{margin:0;font-size:19px;font-weight:800;letter-spacing:-.01em}
+  .dayhead .meta{font-size:13px;color:var(--ink-3);margin-top:3px}
+  .dayhead .theme{margin-top:8px;display:inline-block;font-size:12.5px;font-weight:700;
+    background:var(--tint-blue);color:var(--dan-blue);padding:3px 10px;border-radius:999px}
+  .d-red .theme{background:var(--tint-red);color:var(--dan-red)}
+  .d-green .theme{background:var(--tint-green);color:var(--dan-green)}
+  .d-gold .theme{background:var(--tint-gold);color:var(--dan-gold)}
+
+  .tl{padding:8px 20px 20px;margin:0;list-style:none}
+  .tl li{position:relative;padding:14px 0 14px 96px;border-bottom:1px dashed var(--line)}
+  .tl li:last-child{border-bottom:0}
+  .tl .time{position:absolute;left:0;top:15px;width:78px;text-align:right;
+    font-variant-numeric:tabular-nums;font-size:13px;font-weight:800;color:var(--dan-blue)}
+  .d-red .tl .time{color:var(--dan-red)}
+  .d-green .tl .time{color:var(--dan-green)}
+  .d-gold .tl .time{color:var(--dan-gold)}
+  .tl li::before{content:"";position:absolute;left:86px;top:21px;width:7px;height:7px;border-radius:50%;
+    background:#fff;border:2px solid var(--dan-blue)}
+  .d-red .tl li::before{border-color:var(--dan-red)}
+  .d-green .tl li::before{border-color:var(--dan-green)}
+  .d-gold .tl li::before{border-color:var(--dan-gold)}
+  .tl li::after{content:"";position:absolute;left:89.5px;top:28px;bottom:-14px;width:1px;background:var(--line)}
+  .tl li:last-child::after{display:none}
+  .tl h4{margin:0;font-size:15.5px;font-weight:700}
+  .tl p{margin:5px 0 0;font-size:14px;color:var(--ink-2)}
+  .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px;
+    margin-right:6px;vertical-align:1px}
+  .p-move{background:#eef1f5;color:#4a5a6b}
+  .p-eat{background:var(--tint-gold);color:#8a6220}
+  .p-shop{background:var(--tint-red);color:var(--dan-red)}
+  .p-see{background:var(--tint-green);color:var(--dan-green)}
+  .note{margin-top:7px;font-size:13px;background:#fbf9f4;border-left:3px solid var(--dan-gold);
+    padding:7px 11px;border-radius:0 8px 8px 0;color:var(--ink-2)}
+
+  .callout{margin:16px 20px 20px;border-radius:12px;padding:15px 17px;font-size:14px}
+  .c-red{background:var(--tint-red);border:1px solid #f0d3d5}
+  .c-blue{background:var(--tint-blue);border:1px solid #d6e3ec}
+  .callout h5{margin:0 0 7px;font-size:14px;font-weight:800;color:var(--dan-red)}
+  .c-blue h5{color:var(--dan-blue)}
+  .callout ul{margin:6px 0 0;padding-left:18px}
+  .callout li{margin:3px 0;color:var(--ink-2)}
+
+  /* ---------- Generic content ---------- */
+  .pad{padding:18px 20px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+  .mini h4{margin:0 0 8px;font-size:15px;font-weight:800}
+  .mini ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink-2)}
+  .mini li{margin:4px 0}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+  th{font-size:12px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;background:#fcfaf6}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .chk{list-style:none;padding:0;margin:0;font-size:14px}
+  .chk li{padding:7px 0 7px 28px;position:relative;border-bottom:1px dashed var(--line);color:var(--ink-2)}
+  .chk li:last-child{border-bottom:0}
+  .chk li::before{content:"";position:absolute;left:2px;top:12px;width:14px;height:14px;
+    border:1.5px solid #c8c2b6;border-radius:4px;background:#fff}
+  .foot{margin-top:44px;font-size:12.5px;color:var(--ink-3);text-align:center;line-height:1.9}
+  a.ext{color:var(--dan-blue)}
+
+  @media (max-width:560px){
+    .tl li{padding-left:0;padding-top:34px}
+    .tl .time{position:absolute;left:0;top:10px;width:auto;text-align:left}
+    .tl li::before{left:0;top:16px;display:none}
+    .tl li::after{display:none}
+  }
+  @media print{
+    nav{display:none} .hero{background:#2f5d78 !important;-webkit-print-color-adjust:exact}
+    body{background:#fff} .card,.mini,.fact{box-shadow:none}
+    .day{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Seoul · 5 Days 4 Nights</p>
+    <h1>首爾 5天4夜<br>愛寶樂園 × 古宮 × 美妝購物</h1>
+    <p class="sub">2026 年 8 月 26 日（三）～ 8 月 30 日（日）｜情侶 2 人・適中節奏</p>
+    <div class="tags">
+      <span class="tag">🎢 愛寶樂園一日</span>
+      <span class="tag">👘 景福宮韓服</span>
+      <span class="tag">💄 明洞美妝</span>
+      <span class="tag">☕ 聖水咖啡</span>
+      <span class="tag">🌃 南山夜景</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="inner">
+    <a href="#info">總覽</a>
+    <a href="#d1">Day 1 抵達</a>
+    <a href="#d2" class="hot">Day 2 愛寶樂園</a>
+    <a href="#d3">Day 3 古宮</a>
+    <a href="#d4">Day 4 聖水・明洞</a>
+    <a href="#d5">Day 5 返程</a>
+    <a href="#prep">行前準備</a>
+    <a href="#backup">雨天備案</a>
+    <a href="#budget">預算</a>
+    <a href="#tips">實用資訊</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ 總覽 ============ -->
+<section id="info">
+  <h2 class="sec">Trip Overview</h2>
+  <div class="facts">
+    <div class="fact">
+      <div class="k">去程</div>
+      <div class="v">8/26 (三) 14:00 → 17:25</div>
+      <div class="m">松山 TSA T1 → 金浦 GMP 國際線</div>
+    </div>
+    <div class="fact">
+      <div class="k">回程</div>
+      <div class="v">8/30 (日) 12:45 → 14:20</div>
+      <div class="m">仁川 ICN T2 → 桃園 TPE T1</div>
+    </div>
+    <div class="fact">
+      <div class="k">住宿（4 晚同一間）</div>
+      <div class="v">中區 世宗大路4街 21 號</div>
+      <div class="m">近會賢站(4號線) 步行 4 分・南大門市場旁</div>
+    </div>
+    <div class="fact">
+      <div class="k">8 月天氣</div>
+      <div class="v">約 25–31°C・悶熱多雨</div>
+      <div class="m">午後雷陣雨、颱風季，隨身雨具＋防曬</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="pad">
+      <h4 style="margin:0 0 10px;font-size:15px;font-weight:800">📍 為什麼這樣排？飯店位置決定了動線</h4>
+      <p style="margin:0;font-size:14px;color:var(--ink-2)">
+        飯店在 <b>崇禮門（南大門）與首爾站之間</b>，是首爾中區最好用的位置之一：
+        走路 3–5 分到南大門市場、10 分到明洞、10 分到德壽宮／市廳、12 分到首爾站（回程直達仁川機場超方便）；
+        南山纜車站也在同一個街廓範圍。所以行程刻意把「早出遠門」的日子（愛寶樂園）放在體力最好的第 2 天，
+        把「走路就到」的行程（南大門、明洞、南山塔）放在晚上收尾，每天都能輕鬆走回飯店。
+      </p>
+      <div class="note" style="margin-top:12px">
+        <b>週幾很重要：</b>8/27 是<b>週四</b>（愛寶樂園全週最好玩的一天，人最少）；8/29 是週六，所以安排在市區逛街不進樂園。
+        景福宮週二休、昌德宮與德壽宮週一休 —— 這次 5 天都不踩雷。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAY 1 ============ -->
+<section id="d1">
+  <h2 class="sec">Day 1</h2>
+  <article class="card day d-green">
+    <div class="dayhead">
+      <div class="daynum"><small>8月</small><b>26</b></div>
+      <div class="t">
+        <h3>抵達首爾・南大門暖身夜</h3>
+        <div class="meta">星期三｜金浦入境 → 飯店 → 南大門・崇禮門・首爾路7017</div>
+        <span class="theme">輕鬆落地・走路就到</span>
+      </div>
+    </div>
+    <ul class="tl">
+      <li><span class="time">14:00</span>
+        <h4>松山機場 T1 起飛</h4>
+        <p>建議 12:00 前抵達櫃檯。台灣與韓國時差 <b>+1 小時</b>（韓國較快）。</p>
+      </li>
+      <li><span class="time">17:25</span>
+        <h4>金浦機場 GMP 國際線抵達</h4>
+        <p>入境＋提領行李約 30–45 分。出關後先做三件事：領 eSIM／WiFi 機、買或加值 T-money 卡（便利商店即可）、
+           確認手機已裝好 <b>Naver Map</b> 與 <b>KakaoT</b>。</p>
+        <div class="note">金浦機場換匯匯率普通，建議只換 3–5 萬韓元應急，其餘到明洞民間換錢所換。</div>
+      </li>
+      <li><span class="time">18:20</span>
+        <h4><span class="pill p-move">移動</span>機場鐵路 AREX → 首爾站</h4>
+        <p>金浦機場站搭 <b>AREX 一般列車</b>直達首爾站，約 22 分、₩1,600 上下，不用換車最省事。<br>
+           首爾站再搭 4 號線一站到<b>會賢站</b>，或直接搭計程車 5 分鐘（約 ₩5,000）到飯店。<br>
+           <i>行李多／想省事：</i>金浦直接叫計程車約 40–55 分、₩30,000–40,000（下班尖峰會塞）。</p>
+      </li>
+      <li><span class="time">19:10</span>
+        <h4>飯店 Check-in</h4>
+        <p>放行李、沖個澡，換上輕便衣服。接下來的行程全部走路可到。</p>
+      </li>
+      <li><span class="time">19:50</span>
+        <h4><span class="pill p-eat">晚餐</span>南大門市場（步行 4 分）</h4>
+        <p>第一晚不要跑遠。南大門市場的三條經典巷子：<br>
+           • <b>白帶魚燉煮巷（갈치조림 골목）</b>—— 辣燉白帶魚配白飯，首爾老味道<br>
+           • <b>手工刀削麵巷（칼국수 골목）</b>—— 一份麵送冷麵＋餃子，CP 值超高<br>
+           • <b>가메골 손왕만두</b>—— 現蒸大肉包，外帶當宵夜</p>
+        <div class="note">想吃更熱鬧一點：走 10 分鐘到明洞，「明洞餃子」的刀削麵＋蒸餃是穩定不出錯的第一餐。</div>
+      </li>
+      <li><span class="time">21:00</span>
+        <h4><span class="pill p-see">夜景</span>崇禮門 × 首爾路 7017</h4>
+        <p>崇禮門（南大門）打燈後很好拍，走過去只要 3 分鐘。旁邊接上 <b>首爾路 7017</b> 空中花園步道
+           （高架橋改建、24 小時開放、免費），一路走到首爾站，夜風＋城市燈景，情侶散步剛剛好。</p>
+      </li>
+      <li><span class="time">22:00</span>
+        <h4>回飯店・整裝</h4>
+        <p>明天是愛寶樂園全日，早點睡。先把票券 QR、接駁巴士預約confirm、防曬、雨衣、行動電源準備好。</p>
+      </li>
+    </ul>
+    <div class="callout c-blue">
+      <h5>💡 Day 1 小提醒</h5>
+      <ul>
+        <li>金浦到市區的 AREX 末班約 23:40，17:25 落地完全來得及，不需要趕。</li>
+        <li>韓國多數餐廳 21:00–21:30 最後點餐，第一晚別拖太晚才吃。</li>
+        <li>便利商店買隔天樂園要用的：礦泉水、涼感巾、鹽糖。（樂園可帶水與零食，不可帶正餐便當）</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ DAY 2 ============ -->
+<section id="d2">
+  <h2 class="sec">Day 2 — 重頭戲</h2>
+  <article class="card day d-red">
+    <div class="dayhead">
+      <div class="daynum"><small>8月</small><b>27</b></div>
+      <div class="t">
+        <h3>愛寶樂園 Everland 全日</h3>
+        <div class="meta">星期四｜明洞出發接駁巴士（去回都搭）</div>
+        <span class="theme">全天樂園・週四人最少</span>
+      </div>
+    </div>
+    <ul class="tl">
+      <li><span class="time">07:30</span>
+        <h4>起床・飯店早餐</h4>
+        <p>穿好走路的鞋、薄長袖或防曬外套（園區遮蔭少）。後背包＋腰包最實用。</p>
+      </li>
+      <li><span class="time">09:00</span>
+        <h4><span class="pill p-move">移動</span>前往明洞站 2 號出口</h4>
+        <p>從飯店步行約 12 分，或會賢站搭 4 號線一站到明洞站。<b>09:25 前一定要到集合點</b>。</p>
+        <div class="note"><b>更近的選擇：</b>同一班接駁在「首爾站 10 號出口 09:20」與「市廳站 5 號出口 09:30」也有停靠，
+          兩個都離飯店更近，訂位時可以直接改選首爾站上車，多睡 20 分鐘。</div>
+      </li>
+      <li><span class="time">09:40</span>
+        <h4>接駁巴士發車 → 愛寶樂園</h4>
+        <p>車程約 60–70 分。<b>必須事先線上預約</b>（大成旅遊等業者營運，需滿最低人數才發車），
+           出發前一天再確認一次班次是否成行。</p>
+      </li>
+      <li><span class="time">10:45</span>
+        <h4><span class="pill p-see">入園</span>抵達・進場</h4>
+        <p>進門第一件事：打開 <b>Everland App</b>，用 <b>Smart Queue</b> 先幫「T Express」抽一個下午的時段，
+           抽完再去玩別的，等於邊玩邊排隊。</p>
+      </li>
+      <li><span class="time">11:00</span>
+        <h4>失落峽谷 Lost Valley</h4>
+        <p>水陸兩用車開進動物園區，長頸鹿、大象會走到車邊。全園最有記憶點、也最適合情侶拍照的項目，
+           上午人潮還沒堆積時先解決。</p>
+      </li>
+      <li><span class="time">12:15</span>
+        <h4><span class="pill p-eat">午餐</span>提早或延後吃</h4>
+        <p>12:00–13:00 是餐廳最擠的一小時。建議 <b>11:50 前</b>或 <b>13:15 後</b>用餐；App 可線上點餐取餐。
+           園內經典：Food Court 的部隊鍋、韓式炸雞、還有必吃的<b>烤肉風味爆米花</b>。</p>
+      </li>
+      <li><span class="time">13:15</span>
+        <h4>熊貓世界 Panda World</h4>
+        <p>室內冷氣＋午餐時段人少，是 8 月中午躲太陽的最佳去處。</p>
+      </li>
+      <li><span class="time">14:00</span>
+        <h4>T Express（Smart Queue 時段）</h4>
+        <p>全球排名前段的木製雲霄飛車，77 度俯衝、時速 104 km。怕高的人可以改玩旁邊的
+           <b>Amazon Express 急流泛舟</b>——8 月濕身反而舒服。</p>
+      </li>
+      <li><span class="time">15:00</span>
+        <h4>Safari World ＋ 消暑水上設施</h4>
+        <p>獅虎猛獸區搭遊園車。中間穿插 <b>Columbus Adventure 海盜船</b>、<b>Hurricane</b> 等。</p>
+      </li>
+      <li><span class="time">16:00</span>
+        <h4><span class="pill p-see">拍照</span>四季花園・玫瑰園</h4>
+        <p>樂園最上鏡的一區，逆光時段光線最美。旁邊有咖啡與冰品，順便補充體力。</p>
+      </li>
+      <li><span class="time">16:45</span>
+        <h4>嘉年華遊行（Carnival Fantasy Parade）</h4>
+        <p>入園時先看 App 的 <b>Show Time 表</b>確認當日時間，提前 20–30 分在遊行路線找位子。</p>
+      </li>
+      <li><span class="time">17:45</span>
+        <h4><span class="pill p-shop">購物</span>紀念品 → 前往 2 號停車場</h4>
+        <p>回程車在 <b>2 號停車場（4 號巴士停車場）</b>，走過去要 10 分鐘以上，記得留時間。</p>
+      </li>
+      <li><span class="time">18:30</span>
+        <h4>接駁巴士發車回首爾</h4>
+        <p>約 19:40–20:00 回到明洞／首爾站。</p>
+      </li>
+      <li><span class="time">20:00</span>
+        <h4><span class="pill p-eat">晚餐</span>明洞或南大門收尾</h4>
+        <p>累一整天，吃點療癒的：明洞的<b>韓牛烤肉</b>、<b>安東燉雞</b>或<b>參雞湯</b>。
+           回飯店前買個炸雞＋啤酒當宵夜也很可以。</p>
+      </li>
+    </ul>
+    <div class="callout c-red">
+      <h5>🎢 愛寶樂園關鍵情報（出發前務必再確認一次）</h5>
+      <ul>
+        <li><b>營業時間：</b>夏季平日約 10:00–21:00、週末假日延長到 22:00。7 月下旬～8 月中旬的週五、六曾延長到 23:00，8/27 已過該檔期，請於行前一週上官網「이용안내 → 운영시간」核對當日時間。</li>
+        <li><b>門票：</b>現場全票約 ₩59,000；線上（KKday／Klook 等）約 ₩39,000–45,000，<b>務必先線上買</b>，可省 20–35% 又免排隊。下午 5 點後入場票約 ₩32,000。</li>
+        <li><b>接駁巴士：</b>需<b>提前線上預約</b>、每日 09:00–17:00 受理，最低成團 15 人；回程 18:30（旺季另有 21:30 季節班次，不保證天天有）。</li>
+        <li><b>加勒比海灣</b>（水上樂園）6–9 月營運、需另外購票。若你們想玩水，可考慮改成「上午加勒比海灣＋傍晚愛寶樂園」的組合，但一天塞兩個園區會很趕，這份行程維持單一樂園。</li>
+        <li><b>省錢小提醒：</b>愛寶樂園 App 內可預約餐廳、抽 Smart Queue、看即時等待時間，入園前先下載並登入。</li>
+      </ul>
+    </div>
+    <div class="callout c-blue">
+      <h5>🌙 想留到晚上看夜間遊行／煙火？（Plan B）</h5>
+      <ul>
+        <li>放棄 18:30 接駁車，玩到 20:30–21:00 閉園。</li>
+        <li>自行搭 <b>5002 號巴士</b>到江南站（約 60–70 分，末班約 22:00 前），再轉 2 號線 → 乙支路入口站，走回飯店。</li>
+        <li>或叫 KakaoT 計程車回首爾，約 ₩70,000–90,000，兩人分攤還算划算但要有心理準備。</li>
+        <li>⚠️ 選 Plan B 就不要買來回接駁票，只買單程去程。</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ DAY 3 ============ -->
+<section id="d3">
+  <h2 class="sec">Day 3</h2>
+  <article class="card day">
+    <div class="dayhead">
+      <div class="daynum"><small>8月</small><b>28</b></div>
+      <div class="t">
+        <h3>古宮韓服・北村・益善洞</h3>
+        <div class="meta">星期五｜景福宮 → 西村午餐 → 三清洞・北村 → 益善洞 → 廣藏市場 → 清溪川</div>
+        <span class="theme">歷史宮殿・韓服拍照日</span>
+      </div>
+    </div>
+    <ul class="tl">
+      <li><span class="time">08:30</span>
+        <h4>飯店早餐・慢慢出發</h4>
+        <p>昨天走了一整天，今天不用趕早。今日以步行為主，穿好走的鞋。</p>
+      </li>
+      <li><span class="time">09:20</span>
+        <h4><span class="pill p-move">移動</span>→ 景福宮站</h4>
+        <p>會賢站(4號線) → 忠武路站換 3 號線 → 景福宮站 3 號出口，約 18 分。<br>
+           懶得換車：計程車 12 分、約 ₩7,000。</p>
+      </li>
+      <li><span class="time">09:45</span>
+        <h4><span class="pill p-see">體驗</span>韓服租借（景福宮站周邊）</h4>
+        <p>4 小時方案約 ₩15,000–25,000／人，含髮飾與髮型。
+           <b>穿韓服可免費進入四大宮</b>（省下 ₩3,000／人，重點是照片超好看）。建議線上先預約時段。</p>
+      </li>
+      <li><span class="time">10:30</span>
+        <h4>景福宮</h4>
+        <p>8 月開放 09:00–18:30（最後入場 17:30），<b>週二休館</b>，8/28 正常開放。<br>
+           推薦動線：光化門 → 興禮門 → 勤政殿 → 思政殿 → 交泰殿 → <b>慶會樓</b>（水上樓閣，必拍）→ <b>香遠亭</b>。<br>
+           若時間允許，宮內的<b>國立民俗博物館免費</b>，冷氣很強可以休息。</p>
+        <div class="note">光化門的<b>守門將交代儀式</b>通常一天兩場（約 10:00／14:00），但盛夏酷暑期間可能縮減或取消，
+          當天以現場公告為準。</div>
+      </li>
+      <li><span class="time">12:15</span>
+        <h4><span class="pill p-eat">午餐</span>西村 or 三清洞</h4>
+        <p>• <b>土俗村蔘雞湯</b>（景福宮站西側，觀光客經典，排隊快）<br>
+           • <b>通仁市場 엽전도시락</b>（用銅錢換小菜自己配便當，很有趣，週一休）<br>
+           • 三清洞方向：泡菜鍋、韓定食小館林立</p>
+      </li>
+      <li><span class="time">13:45</span>
+        <h4>三清洞散步 → 北村韓屋村</h4>
+        <p>沿三清洞路上坡，兩側是畫廊、小咖啡館與選物店。接著轉進<b>北村八景</b>，
+           最有名的是<b>北村 11 號街</b>那條可以同時看到韓屋屋頂與南山塔的斜坡。</p>
+        <div class="note">北村是<b>真正有人住的住宅區</b>：請輕聲、不要進私宅庭院，並留意居民休息時段的參觀限制（通常週日全天禁止喧嘩／部分巷弄不開放）。</div>
+      </li>
+      <li><span class="time">15:00</span>
+        <h4>昌德宮（可選：後苑導覽）</h4>
+        <p>世界文化遺產，<b>週一休館</b>。<b>後苑（祕苑）必須事先線上預約</b>——通常於參觀日前 6 天上午 10:00（韓國時間）開放搶票，有中文／英文導覽場次，約 90 分鐘。<br>
+           <i>沒搶到票也沒關係</i>：改為單純參觀昌德宮本殿，或直接跳到下一站。</p>
+      </li>
+      <li><span class="time">16:15</span>
+        <h4><span class="pill p-eat">咖啡</span>益善洞韓屋咖啡街</h4>
+        <p>百年韓屋巷弄改造成的咖啡廳聚落，是首爾市中心最好逛的「慢巷」。
+           推薦：<b>청수당（清水堂）</b>庭園系、<b>르블란서</b>法式、<b>식물</b>植物系。
+           換回便服後在這裡拍照也很好看。</p>
+      </li>
+      <li><span class="time">18:00</span>
+        <h4><span class="pill p-eat">晚餐</span>廣藏市場</h4>
+        <p>走路或一站地鐵可到。必吃：<b>綠豆煎餅（빈대떡）</b>、<b>麻藥飯捲</b>、<b>生拌牛肉（육회）</b>、현지 소주一杯。<br>
+           <i>不想擠市場：</i>回鍾路三街吃烤肉，或益善洞內的小酒館。</p>
+      </li>
+      <li><span class="time">20:00</span>
+        <h4><span class="pill p-see">夜景</span>清溪川夜間散步 → 回飯店</h4>
+        <p>從廣藏市場旁下到清溪川，順流往西走 20–25 分就會接到市廳／乙支路一帶，再走 10 分回飯店。
+           夏天晚上水邊涼快，是首爾市民的散步路線。</p>
+      </li>
+    </ul>
+    <div class="callout c-blue">
+      <h5>🎟 古宮票務重點</h5>
+      <ul>
+        <li>景福宮 ₩3,000／人；穿韓服免費。18 歲以下、65 歲以上免費。</li>
+        <li>昌德宮 ₩3,000（後苑另計 ₩5,000，需預約）；宗廟 ₩1,000（採時間制導覽）。</li>
+        <li><b>四大宮＋宗廟通票（₩10,000）</b>三個月內有效，若你們會逛 3 個以上就划算。</li>
+        <li>休館日：景福宮週二休；昌德宮・昌慶宮・德壽宮・宗廟週一休。本次行程都避開了。</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ DAY 4 ============ -->
+<section id="d4">
+  <h2 class="sec">Day 4</h2>
+  <article class="card day d-gold">
+    <div class="dayhead">
+      <div class="daynum"><small>8月</small><b>29</b></div>
+      <div class="t">
+        <h3>聖水洞咖啡 × 首爾林 × 明洞美妝 × 南山夜景</h3>
+        <div class="meta">星期六｜咖啡巡禮 → 血拼補貨 → 南山塔收尾</div>
+        <span class="theme">咖啡・購物・浪漫夜景</span>
+      </div>
+    </div>
+    <ul class="tl">
+      <li><span class="time">09:30</span>
+        <h4><span class="pill p-move">移動</span>→ 聖水洞</h4>
+        <p>會賢站(4號線) → 東大門歷史文化公園站換 2 號線 → <b>聖水站／纛島站</b>，約 30 分。</p>
+      </li>
+      <li><span class="time">10:15</span>
+        <h4><span class="pill p-eat">咖啡</span>聖水洞咖啡街（首爾的布魯克林）</h4>
+        <p>紅磚工廠與汽車修理廠改造成的咖啡廳・展覽空間・快閃店密集區，週末最有氣氛。<br>
+           推薦：<b>大林倉庫（대림창고）</b>倉庫感始祖、<b>Blue Bottle 聖水</b>、<b>Nudake</b> 藝術甜點、
+           <b>Center Coffee</b>、<b>LCDC Seoul</b> 選物複合空間。<br>
+           精品快閃（Dior 聖水、Tamburins、Gentle Monster）常換檔，出發前查一下當期展。</p>
+      </li>
+      <li><span class="time">12:30</span>
+        <h4><span class="pill p-eat">午餐</span>聖水在地味</h4>
+        <p>聖水馬鈴薯排骨湯、聖水豬腳，或走文青路線在 LCDC／Under Stand Avenue 一帶用餐。</p>
+      </li>
+      <li><span class="time">14:00</span>
+        <h4><span class="pill p-see">散步</span>首爾林（서울숲）</h4>
+        <p>走路就到的大公園，有鹿苑、水杉大道與週末市集，是聖水行程最好的緩衝。<br>
+           <i>怕熱／下雨：</i>直接跳過，提早回市區逛街。</p>
+      </li>
+      <li><span class="time">15:30</span>
+        <h4><span class="pill p-move">移動</span>→ 明洞</h4>
+        <p>2 號線 → 乙支路入口站（樂天百貨直通）或 4 號線明洞站。約 30 分。</p>
+      </li>
+      <li><span class="time">16:00</span>
+        <h4><span class="pill p-shop">購物</span>明洞美妝＆百貨掃貨（3 小時）</h4>
+        <p>• <b>Olive Young 明洞旗艦店</b>——美妝一站購足，外國人出示護照可退稅＋常有 1+1<br>
+           • <b>樂天百貨本店／樂天免稅店</b>（乙支路入口站直通）——精品與伴手禮<br>
+           • <b>新世界百貨本店</b>（會賢站，離飯店最近）——建築本身就很美<br>
+           • 街邊：ARTBOX、DAISO（超好買的伴手禮）、ABC Mart<br>
+           • 想更便宜：走回<b>南大門市場</b>買海苔、童裝、廚房小物</p>
+        <div class="note">退稅：單筆滿 ₩15,000 可辦；明洞多數店家支援「即時退稅」，結帳時出示護照最省事。
+          刷卡建議選「以韓元結帳」避免 DCC 手續費。</div>
+      </li>
+      <li><span class="time">19:00</span>
+        <h4><span class="pill p-eat">晚餐</span>明洞・忠武路一帶</h4>
+        <p>• <b>韓牛烤肉</b>（明洞多家，適合最後一晚犒賞）<br>
+           • <b>진고개</b>——老字號韓定食／醬油蟹<br>
+           • <b>명동교자</b>——刀削麵＋蒸餃，快速又不出錯<br>
+           • 想熱鬧：乙支路「老式酒吧巷（을지로 노가리 골목）」露天喝一杯</p>
+      </li>
+      <li><span class="time">20:30</span>
+        <h4><span class="pill p-see">夜景</span>南山纜車 → N 首爾塔</h4>
+        <p><b>這是住這間飯店最大的紅利</b>——纜車站就在會賢／南山山腳，從飯店走過去約 10–15 分
+           （可先搭「南山 Ormi」電扶梯上到纜車站，免費）。<br>
+           纜車來回約 ₩15,000／人，3 分鐘上山。塔下的<b>愛情鎖牆</b>與觀景平台免費，
+           要上塔頂觀景台再另購票（約 ₩21,000）。<br>
+           夜景時段人多，建議 20:00 左右先上山避開排隊尖峰。</p>
+      </li>
+      <li><span class="time">22:00</span>
+        <h4>下山・回飯店整理行李</h4>
+        <p>今晚先把行李打包好，明天早上只需要拎著走。</p>
+      </li>
+    </ul>
+    <div class="callout c-red">
+      <h5>🛍 血拼清單（韓國買最划算）</h5>
+      <ul>
+        <li><b>美妝：</b>Olive Young 獨家品牌（round lab、Numbuzin、TIRTIR、Anua、Beauty of Joseon）、面膜整箱</li>
+        <li><b>零食：</b>蜂蜜奶油洋芋片、Market O 布朗尼、韓國海苔、柚子茶、辛拉麵各口味</li>
+        <li><b>藥妝：</b>蜂蜜潤唇、酸痛貼布、人蔘相關</li>
+        <li><b>雜貨：</b>DAISO 的廚房小物與收納、ARTBOX 文具、KAKAO FRIENDS／LINE FRIENDS 週邊</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ DAY 5 ============ -->
+<section id="d5">
+  <h2 class="sec">Day 5</h2>
+  <article class="card day d-green">
+    <div class="dayhead">
+      <div class="daynum"><small>8月</small><b>30</b></div>
+      <div class="t">
+        <h3>南大門晨間採買 → 仁川機場返程</h3>
+        <div class="meta">星期日｜12:45 ICN T2 起飛，時間偏緊，早上以「輕行程」為主</div>
+        <span class="theme">早起・補貨・準時登機</span>
+      </div>
+    </div>
+    <ul class="tl">
+      <li><span class="time">06:30</span>
+        <h4><span class="pill p-shop">補貨</span>南大門市場晨市（步行 4 分）</h4>
+        <p>南大門是首爾少數<b>清晨就開</b>的市場。買最後一波海苔、乾貨、廚房用品，
+           順便在市場裡吃碗刀削麵或大肉包當早餐。<br>
+           <i>想多睡：</i>直接跳過，睡到 07:30 吃飯店早餐即可。</p>
+      </li>
+      <li><span class="time">07:45</span>
+        <h4>回飯店・退房</h4>
+        <p>檢查：護照、退稅單、充電線、飯店保險箱。</p>
+      </li>
+      <li><span class="time">08:15</span>
+        <h4><span class="pill p-move">移動</span>→ 首爾站</h4>
+        <p>步行約 12 分；行李多建議搭計程車 5 分鐘（約 ₩5,000）。</p>
+      </li>
+      <li><span class="time">08:40</span>
+        <h4>AREX 機場鐵路 → 仁川機場 T2</h4>
+        <p>• <b>直通列車（Express）</b>：首爾站 → T2 約 <b>51 分</b>、全車對號座、₩11,000（線上／App 購票約 ₩8,000–9,000）<br>
+           • <b>一般列車</b>：→ T2 約 <b>66 分</b>、₩5,000 上下、不用預約隨到隨搭<br>
+           兩種都能在 <b>09:45–10:00 前</b>抵達 T2，符合國際線提前 2.5–3 小時的建議。</p>
+        <div class="note"><b>加分技巧：</b>首爾站的「都心機場航站樓」可提前辦理報到與托運（僅限部分航空公司、
+          且須於起飛前 3 小時完成）。若你的航空公司有支援，08:15 到首爾站剛好可以先托運，之後就能空手搭車。</div>
+      </li>
+      <li><span class="time">09:45</span>
+        <h4>抵達 ICN 第二航廈</h4>
+        <p>報到 → 退稅（自助 KIOSK，記得先留時間）→ 出境 → 免稅店提貨。<br>
+           退稅動線：先在出境大廳的自助機掃描退稅單，海關查驗後過安檢，再到管制區內領現金。</p>
+      </li>
+      <li><span class="time">12:45</span>
+        <h4>ICN T2 起飛 → 14:20 抵達桃園 T1</h4>
+        <p>回到台灣。🎉</p>
+      </li>
+    </ul>
+    <div class="callout c-blue">
+      <h5>⏱ 時間安全邊際</h5>
+      <ul>
+        <li>最晚出發時間：<b>09:00 前</b>要從首爾站上車，才能在 10:15 前到 T2（起飛前 2.5 小時）。</li>
+        <li>週日早上路況佳，但 AREX 直通班距約 40–60 分鐘，建議<b>提前上網查好班次或直接搭一般列車</b>。</li>
+        <li>T-money 餘額可在機場退還（扣手續費），或留著下次用。</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 行前準備 ============ -->
+<section id="prep">
+  <h2 class="sec">行前準備 Checklist</h2>
+  <div class="grid2">
+    <div class="mini">
+      <h4>🎫 一定要「事先預約」的三件事</h4>
+      <ul class="chk" style="padding-left:0">
+        <li><b>愛寶樂園門票</b>——線上買省 20–35%（KKday／Klook）</li>
+        <li><b>愛寶樂園接駁巴士</b>——需線上預約、最低成團 15 人，出發前一天再確認</li>
+        <li><b>昌德宮後苑導覽</b>——參觀日前 6 天 10:00（韓國時間）開放預約，秒殺</li>
+        <li>（建議）韓服租借時段、南山塔纜車票、熱門餐廳訂位</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>📱 App 與網路</h4>
+      <ul>
+        <li><b>Naver Map</b> 或 <b>KakaoMap</b>（Google Maps 在韓國無法導航步行／開車路線）</li>
+        <li><b>KakaoT</b>——叫計程車，可綁信用卡</li>
+        <li><b>Everland App</b>——Smart Queue、即時等待時間、餐廳預約</li>
+        <li><b>Papago</b>——韓文翻譯／拍照翻菜單</li>
+        <li>eSIM 或 WiFi 分享器（兩人共用分享器較省）</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>💳 錢與卡</h4>
+      <ul>
+        <li><b>T-money 卡</b>：便利商店買，地鐵、公車、部分計程車都能用</li>
+        <li>換匯順序：台灣先換小額 → 明洞民間換錢所（匯率最好，帶美金或台幣現鈔皆可）</li>
+        <li>韓國刷卡極普及，但傳統市場、路邊攤仍需現金</li>
+        <li>退稅：單筆 ₩15,000 以上，結帳出示護照辦即時退稅最省事</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>🎒 8 月首爾行李重點</h4>
+      <ul>
+        <li>輕薄透氣衣物＋<b>一件薄外套</b>（室內冷氣非常強）</li>
+        <li>折傘或輕便雨衣（8 月是雨季／颱風季）</li>
+        <li>防曬乳、涼感巾、小電風扇（愛寶樂園遮蔭少）</li>
+        <li>好走的鞋 ×2 雙、痠痛貼布</li>
+        <li>行動電源（樂園整天用 App 很耗電）</li>
+        <li>常備藥、腸胃藥（辣食注意）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 備案 ============ -->
+<section id="backup">
+  <h2 class="sec">下雨／颱風備案</h2>
+  <div class="card">
+    <div class="pad">
+      <p style="margin:0 0 12px;font-size:14px;color:var(--ink-2)">
+        8 月下旬仍在颱風季，行前 3 天請追蹤氣象。以下是各種狀況的替換方案：
+      </p>
+      <table>
+        <thead><tr><th>狀況</th><th>建議做法</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>愛寶樂園當天下大雨</b></td>
+            <td>樂園雨天照常營運，室內設施（熊貓世界、動物園館、Global Fair 商店街、遊行取消時的室內秀）仍可玩，且人潮大減。<br>
+              若是<b>颱風警報</b>，樂園可能停業 —— 可與 Day 3 對調到 8/28（週五）。</td>
+          </tr>
+          <tr>
+            <td><b>古宮日下雨</b></td>
+            <td>改成室內：<b>國立中央博物館</b>（免費、超大）、<b>DDP 東大門設計廣場</b>、<b>樂天世界塔 SEOUL SKY</b>（117–123 樓觀景台）。</td>
+          </tr>
+          <tr>
+            <td><b>聖水／逛街日下雨</b></td>
+            <td>聖水本來就以室內咖啡廳為主，影響不大。備案：<b>COEX 星空圖書館＋水族館</b>、<b>The Hyundai Seoul</b> 汝矣島百貨、<b>永登浦時代廣場</b>。</td>
+          </tr>
+          <tr>
+            <td><b>南山塔視野差</b></td>
+            <td>改去 <b>SEOUL SKY</b>（室內高樓觀景）或 <b>汗蒸幕</b>（如龍山 Dragon Hill Spa）放鬆一晚。</td>
+          </tr>
+          <tr>
+            <td><b>體力透支</b></td>
+            <td>飯店附近就有新世界百貨與南大門市場，隨時可以「就地休整」，不用勉強跑遠點。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 預算 ============ -->
+<section id="budget">
+  <h2 class="sec">預算估算（2 人・不含機票住宿）</h2>
+  <div class="card">
+    <div class="pad">
+      <table>
+        <thead><tr><th>項目</th><th>說明</th><th class="num">2 人合計（韓元）</th></tr></thead>
+        <tbody>
+          <tr><td>愛寶樂園門票</td><td>線上購票 ₩40,000 × 2</td><td class="num">₩80,000</td></tr>
+          <tr><td>愛寶接駁巴士</td><td>來回約 ₩12,000–16,000／人</td><td class="num">₩28,000</td></tr>
+          <tr><td>樂園內餐飲</td><td>午餐＋點心＋飲料</td><td class="num">₩60,000</td></tr>
+          <tr><td>古宮門票</td><td>穿韓服可免費；含後苑估算</td><td class="num">₩16,000</td></tr>
+          <tr><td>韓服租借</td><td>4 小時方案 ₩20,000 × 2</td><td class="num">₩40,000</td></tr>
+          <tr><td>南山纜車＋觀景台</td><td>纜車來回 ₩15,000＋塔票 ₩21,000</td><td class="num">₩72,000</td></tr>
+          <tr><td>市區交通</td><td>地鐵、公車、幾趟計程車</td><td class="num">₩60,000</td></tr>
+          <tr><td>機場往返</td><td>AREX 去程一般＋回程直通</td><td class="num">₩25,000</td></tr>
+          <tr><td>餐飲（樂園日以外）</td><td>約 ₩60,000／天 × 4 天</td><td class="num">₩240,000</td></tr>
+          <tr><td>咖啡・甜點</td><td>聖水、益善洞</td><td class="num">₩60,000</td></tr>
+          <tr><td><b>小計（不含購物）</b></td><td>約新台幣 <b>16,500</b> 元</td><td class="num"><b>₩681,000</b></td></tr>
+          <tr><td>購物預算</td><td>美妝＋伴手禮，彈性最大</td><td class="num">自訂</td></tr>
+        </tbody>
+      </table>
+      <p style="margin:12px 0 0;font-size:12.5px;color:var(--ink-3)">
+        匯率參考：₩1,000 ≒ NT$24（實際以出發前為準）。以上為中間值估算，吃得省或吃得好差距很大。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 實用資訊 ============ -->
+<section id="tips">
+  <h2 class="sec">實用資訊</h2>
+  <div class="grid2">
+    <div class="mini">
+      <h4>🚇 飯店出發的交通懶人包</h4>
+      <ul>
+        <li>會賢站（4 號線）步行 <b>4 分</b>——去明洞 1 站、東大門 4 站</li>
+        <li>市廳站（1／2 號線）步行 <b>10 分</b>——去弘大、聖水走 2 號線</li>
+        <li>首爾站步行 <b>12 分</b>——AREX 直達仁川／金浦，KTX 也在這</li>
+        <li>南大門市場 <b>4 分</b>、崇禮門 <b>3 分</b>、新世界百貨 <b>5 分</b></li>
+        <li>南山纜車站 <b>10–15 分</b>（含南山 Ormi 電扶梯）</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>🗣 用得上的韓文</h4>
+      <ul>
+        <li>你好／謝謝：안녕하세요 ／ 감사합니다</li>
+        <li>結帳：계산해 주세요（kye-san-hae ju-se-yo）</li>
+        <li>請給我這個：이거 주세요（i-geo ju-se-yo）</li>
+        <li>不要辣：안 맵게 해 주세요</li>
+        <li>可以刷卡嗎：카드 되나요?</li>
+        <li>洗手間在哪：화장실 어디예요?</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>⚠️ 容易踩雷的地方</h4>
+      <ul>
+        <li>Google Maps 在韓國<b>不能導航</b>，一定要用 Naver／Kakao Map</li>
+        <li>地鐵末班約 23:00–00:30，別玩過頭</li>
+        <li>景福宮週二休、其他宮週一休（本行程已避開）</li>
+        <li>北村是住宅區，晚上與週日請安靜通過</li>
+        <li>路邊攤多為現金交易，隨身留 ₩50,000 現金</li>
+        <li>樂園接駁車若未達最低人數可能取消，務必前一天確認</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>🆘 緊急聯絡</h4>
+      <ul>
+        <li>觀光翻譯熱線：<b>1330</b>（24 小時，有中文）</li>
+        <li>報警 112／消防・救護 119</li>
+        <li>駐韓國台北代表部：+82-2-399-2780（急難救助 +82-10-9080-2761）</li>
+        <li>遺失物：地鐵各線遺失物中心、KakaoT 車內遺失可透過 App 聯絡司機</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<p class="foot">
+  首爾 5天4夜行程表｜2026.08.26 – 08.30<br>
+  營業時間、票價與接駁班次可能異動，出發前一週請再次確認官方公告。<br>
+  韓國觀光公社 1330 中文專線可代為查詢與訂位。
+</p>
+
+</div>
+</body>
+</html>
